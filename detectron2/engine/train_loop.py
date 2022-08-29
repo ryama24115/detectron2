@@ -148,6 +148,14 @@ class TrainerBase:
                     self.before_step()
                     self.run_step()
                     self.after_step()
+<<<<<<< HEAD
+=======
+                    earlystopping((self.run_step.losses / self.run_step.index), self.run_step.net)
+                    if earlystopping.early_stop:
+                        print("Early Stopping!")
+                        break
+                    
+>>>>>>> yama_02
                 # self.iter == max_iter can be used by `after_train` to
                 # tell whether the training successfully finished or failed
                 # due to exceptions.
