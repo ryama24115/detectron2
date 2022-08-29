@@ -177,7 +177,7 @@ class TrainerBase:
             start_iter, max_iter (int): See docs above
         """
         earlystopping = EarlyStopping(patience=1, verbose=True) #検証なのでわざとpatience=1回にしている
-        
+
         logger = logging.getLogger(__name__)
         logger.info("Starting training from iteration {}".format(start_iter))
 
@@ -192,7 +192,9 @@ class TrainerBase:
                     self.run_step()
                     self.after_step()
 
-                    earlystopping((self.run_step.losses / self.run_step.index), self.run_step.net)
+                    loss = self.storage(self.iter)
+
+                    earlystopping((loss / self.run_step.index), self.run_step.net)
                     if earlystopping.early_stop:
                         print("Early Stopping!")
                         break
