@@ -146,8 +146,8 @@ class TrainerBase:
                 self.before_train()
                 for self.iter in range(start_iter, max_iter):
                     self.before_step()
-                    self.run_step()
-                    self.after_step()
+                    # self.run_step()
+                    # self.after_step()
                 # self.iter == max_iter can be used by `after_train` to
                 # tell whether the training successfully finished or failed
                 # due to exceptions.
