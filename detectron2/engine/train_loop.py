@@ -192,7 +192,7 @@ class TrainerBase:
                     self.before_step()
                     self.run_step()
                     self.after_step()
-                    earlystopping((self.run_step.loss_dict / self.run_step.index), self.run_step.net)
+                    earlystopping((self.run_step.losses / self.run_step.index), self.run_step.net)
                     if earlystopping.early_stop:
                         print("Early Stopping!")
                         break
