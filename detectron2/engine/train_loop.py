@@ -194,7 +194,7 @@ class TrainerBase:
 
                     loss = self.storage
 
-                    earlystopping((loss / self.run_step.index), self.run_step.net)
+                    earlystopping(loss)
                     if earlystopping.early_stop:
                         print("Early Stopping!")
                         break
