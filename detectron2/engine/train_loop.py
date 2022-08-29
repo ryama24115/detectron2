@@ -192,7 +192,7 @@ class TrainerBase:
                     self.run_step()
                     self.after_step()
 
-                    loss = self.storage(self.iter)
+                    loss = self.storage
 
                     earlystopping((loss / self.run_step.index), self.run_step.net)
                     if earlystopping.early_stop:
