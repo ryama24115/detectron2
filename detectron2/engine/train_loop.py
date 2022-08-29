@@ -241,7 +241,6 @@ class SimpleTrainer(TrainerBase):
             optimizer: a torch optimizer.
         """
         super().__init__()
-
         """
         We set the model to training mode in the trainer.
         However it's valid to train a model that's in eval mode.
